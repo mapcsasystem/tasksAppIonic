@@ -13,10 +13,10 @@ export class HeaderComponent {
   @Input({ required: true }) color: string = 'primary';
   @Input({ required: true }) isModal: boolean = false;
 
-  private themeService = inject(ThemeService);
-  $darkMode: BehaviorSubject<boolean> = this.themeService.$darkMode;
+  private _themeService = inject(ThemeService);
+  $darkMode: BehaviorSubject<boolean> = this._themeService.$darkMode;
 
-  setTheme(darkMode: boolean) {
-    this.themeService.setTheme(darkMode);
+  public setTheme(darkMode: boolean) {
+    this._themeService.setTheme(darkMode);
   }
 }
