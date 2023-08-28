@@ -1,69 +1,74 @@
-<div class="ion-no-border animate__animated animate__fadeIn">
-  <h2 class="ion-text-center ion-padding-top">Registrarse</h2>
-  <div class="divFlexCenter">
+<ion-content>
+  <shared-header color="primary" [title]="''" [isModal]="false" [backButtons]="'auth'" [centerTitle]="false">
+  </shared-header>
+  <shared-logo></shared-logo>
+  <h2 class="ion-text-center ion-no-margin">
+    Registrarse
+  </h2>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off" class="ion-text-center">
-      <shared-custom-input [control]="form.controls['fullName']" type="text" label="Nombre completo*"
-        placeholder="Ingresa el nombre" autocomplete="off" icon="mail-outline" nameControl="fullName">
-      </shared-custom-input>
-      <ng-container *ngIf="isValidField('fullName')">
-        <ion-note color="danger" *ngIf="field('fullName')?.hasError('required')"
-          [innerHTML]="_m.errorsFields.required"></ion-note>
-        <ion-note color="danger" *ngIf="field('fullName')?.hasError('minlength')"
-          [innerHTML]="_m.errorsFields.fullName.minLength"></ion-note>
-        <ion-note color="danger" *ngIf="field('fullName')?.hasError('pattern')"
-          [innerHTML]="_m.errorsFields.fullName.pattern"></ion-note>
-      </ng-container>
 
-      <shared-custom-input [control]="form.controls['email']" type="email" label="Email*" placeholder="Ingresa el email"
-        autocomplete="off" icon="mail-outline" nameControl="email">
-      </shared-custom-input>
-      <ng-container *ngIf="isValidField('email')">
-        <ion-note color="danger" *ngIf="field('email')?.hasError('required')"
-          [innerHTML]="_m.errorsFields.required"></ion-note>
-        <ion-note color="danger" *ngIf="field('email')?.hasError('pattern')"
-          [innerHTML]="_m.errorsFields.email.pattern"></ion-note>
-        <ion-note color="danger" *ngIf="field('email')?.hasError('emailExists')"
-          [innerHTML]="_m.errorsFields.email.emailExists"></ion-note>
-      </ng-container>
+  <div class="content ion-no-border animate__animated animate__fadeIn">
+    <!-- <h2 class="ion-text-center ion-padding-top">Registrarse</h2> -->
+    <div class="divFlexCenter">
 
-      <shared-custom-input [control]="form.controls['password']" type="password" label="Contraseña*"
-        placeholder="Ingresa la contraseña" autocomplete="off" icon="lock-closed-outline" nameControl="password">
-      </shared-custom-input>
-      <ng-container *ngIf="isValidField('password')">
-        <ion-note color="danger" *ngIf="field('password')?.hasError('required')"
-          [innerHTML]="_m.errorsFields.required"></ion-note>
-        <ion-note color="danger" *ngIf="field('password')?.hasError('minlength')"
-          [innerHTML]="_m.errorsFields.password.minLength"></ion-note>
-        <ion-note color="danger" *ngIf="field('password')?.hasError('pattern')"
-          [innerHTML]="_m.errorsFields.password.pattern"></ion-note>
-      </ng-container>
+      <form [formGroup]="form" (keyup.enter)="onSubmit()" (ngSubmit)="onSubmit()" autocomplete="off"
+        class="ion-text-center">
+        <shared-custom-input [control]="form.controls['fullName']" type="text" label="Nombre completo*"
+          placeholder="Ingresa el nombre" autocomplete="off" icon="mail-outline" nameControl="fullName">
+        </shared-custom-input>
+        <ng-container *ngIf="isValidField('fullName')">
+          <ion-note color="danger" *ngIf="field('fullName')?.hasError('required')"
+            [innerHTML]="_m.errorsFields.required"></ion-note>
+          <ion-note color="danger" *ngIf="field('fullName')?.hasError('minlength')"
+            [innerHTML]="_m.errorsFields.fullName.minLength"></ion-note>
+          <ion-note color="danger" *ngIf="field('fullName')?.hasError('pattern')"
+            [innerHTML]="_m.errorsFields.fullName.pattern"></ion-note>
+        </ng-container>
 
-      <shared-custom-input [control]="form.controls['password2']" type="password" label="Validar contraseña*"
-        placeholder="Ingresa la contraseña" autocomplete="off" icon="lock-closed-outline" nameControl="password2">
-      </shared-custom-input>
-      <div *ngIf="isValidField('password2')">
-        <ion-note color="danger" *ngIf="field('password2')?.hasError('required')"
-          [innerHTML]="_m.errorsFields.required"></ion-note>
-        <ion-note color="danger" *ngIf="field('password2')?.hasError('minlength')"
-          [innerHTML]="_m.errorsFields.password.minLength"></ion-note>
-        <ion-note color="danger" *ngIf="field('password2')?.hasError('notEquals')"
-          [innerHTML]="_m.errorsFields.password.notEquals"></ion-note>
-        <ion-note color="danger" *ngIf="field('password2')?.hasError('pattern')"
-          [innerHTML]="_m.errorsFields.password.pattern"></ion-note>
-      </div>
+        <shared-custom-input [control]="form.controls['email']" type="email" label="Email*"
+          placeholder="Ingresa el email" autocomplete="off" icon="mail-outline" nameControl="email">
+        </shared-custom-input>
+        <ng-container *ngIf="isValidField('email')">
+          <ion-note color="danger" *ngIf="field('email')?.hasError('required')"
+            [innerHTML]="_m.errorsFields.required"></ion-note>
+          <ion-note color="danger" *ngIf="field('email')?.hasError('pattern')"
+            [innerHTML]="_m.errorsFields.email.pattern"></ion-note>
+          <ion-note color="danger" *ngIf="field('email')?.hasError('emailExists')"
+            [innerHTML]="_m.errorsFields.email.emailExists"></ion-note>
+        </ng-container>
 
-      <ion-button type="submit" shape="round" class="ion-margin-vertical" [disabled]="form.invalid" aria-label="login">
-        registrate
-        <ion-icon slot="end" name="person-add-outline"></ion-icon>
-      </ion-button>
-      <div class="singUpIn">
-        <ion-button type="button" shape="round" class="ion-margin-vertical" aria-label="register"
-          (click)="navigateByUrl()">
-          Regresar a login
-          <ion-icon slot="end" name="log-in-outline"></ion-icon>
+        <shared-custom-input [control]="form.controls['password']" type="password" label="Contraseña*"
+          placeholder="Ingresa la contraseña" autocomplete="off" icon="lock-closed-outline" nameControl="password">
+        </shared-custom-input>
+        <ng-container *ngIf="isValidField('password')">
+          <ion-note color="danger" *ngIf="field('password')?.hasError('required')"
+            [innerHTML]="_m.errorsFields.required"></ion-note>
+          <ion-note color="danger" *ngIf="field('password')?.hasError('minlength')"
+            [innerHTML]="_m.errorsFields.password.minLength"></ion-note>
+          <ion-note color="danger" *ngIf="field('password')?.hasError('pattern')"
+            [innerHTML]="_m.errorsFields.password.pattern"></ion-note>
+        </ng-container>
+
+        <shared-custom-input [control]="form.controls['password2']" type="password" label="Validar contraseña*"
+          placeholder="Ingresa la contraseña" autocomplete="off" icon="lock-closed-outline" nameControl="password2">
+        </shared-custom-input>
+        <div *ngIf="isValidField('password2')">
+          <ion-note color="danger" *ngIf="field('password2')?.hasError('required')"
+            [innerHTML]="_m.errorsFields.required"></ion-note>
+          <ion-note color="danger" *ngIf="field('password2')?.hasError('minlength')"
+            [innerHTML]="_m.errorsFields.password.minLength"></ion-note>
+          <ion-note color="danger" *ngIf="field('password2')?.hasError('notEquals')"
+            [innerHTML]="_m.errorsFields.password.notEquals"></ion-note>
+          <ion-note color="danger" *ngIf="field('password2')?.hasError('pattern')"
+            [innerHTML]="_m.errorsFields.password.pattern"></ion-note>
+        </div>
+
+        <ion-button type="submit" shape="round" class="ion-margin-vertical" [disabled]="form.invalid"
+          aria-label="login">
+          registrate
+          <ion-icon slot="end" name="person-add-outline"></ion-icon>
         </ion-button>
-      </div>
-    </form>
+      </form>
+    </div>
   </div>
-</div>
+</ion-content>

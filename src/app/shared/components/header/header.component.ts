@@ -7,10 +7,11 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
-  @Input({ required: true }) title: string = '';
-  @Input({ required: true }) backButtons: string = '';
+  @Input({ required: true }) title: string | null = null;
+  @Input({ required: true }) backButtons: string | null = null;
   @Input({ required: true }) color: string = 'primary';
   @Input({ required: true }) isModal: boolean = false;
+  @Input({ required: true }) centerTitle: boolean = false;
 
   private _themeService = inject(ThemeService);
   $darkMode: BehaviorSubject<boolean> = this._themeService.$darkMode;

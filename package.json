@@ -1,8 +1,8 @@
 {
-  "name": "task-app-ionic",
+  "name": "task-app",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Miguel Angel Pérez Contreras",
+  "homepage": "TODO:",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -64,5 +64,8 @@
     "ts-node": "^8.3.0",
     "typescript": "~5.0.2"
   },
-  "description": "An Ionic project"
+  "description": "Proyecto para tareas",
+  "engines": {
+    "node": "18"
+  }
 }

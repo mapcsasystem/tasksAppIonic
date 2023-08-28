@@ -64,8 +64,4 @@ export class RegisterPage {
   public field(field: string): AbstractControl<any, any> | null {
     return this._v.field(this.form, field);
   }
-
-  public navigateByUrl(): void {
-    this._router.navigateByUrl('auth/login', { replaceUrl: true });
-  }
 }
