@@ -4,7 +4,6 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'shared-custom-input',
   templateUrl: './custom-input.component.html',
-  styleUrls: ['./custom-input.component.scss'],
 })
 export class CustomInputComponent {
   @Input({ required: true }) control!: FormControl | any;
