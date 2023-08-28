@@ -1,13 +1,48 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="ion-no-border animate__animated animate__fadeIn">
+    <h2 class="ion-text-center ion-padding-top">Login</h2>
+    <div class="divFlexCenter">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off" class="ion-text-center">
+            <shared-custom-input [control]="form.controls.email" type="email" label="Email*"
+                placeholder="Ingresa el email" icon="mail-outline" nameControl="email">
+            </shared-custom-input>
+            <ng-container *ngIf="isValidField('email')">
+                <ion-note color="danger" *ngIf="field('email')?.hasError('required')"
+                    [innerHTML]="_m.errorsFields.required"></ion-note>
+                <ion-note color="danger" *ngIf="field('email')?.hasError('pattern')"
+                    [innerHTML]="_m.errorsFields.email.pattern"></ion-note>
+                <ion-note color="danger" *ngIf="field('email')?.hasError('emailExists')"
+                    [innerHTML]="_m.errorsFields.email.emailExists"></ion-note>
+            </ng-container>
+
+            <shared-custom-input [control]="form.controls.password" type="password" label="Contraseña*"
+                placeholder="Ingresa la contraseña" icon="lock-closed-outline" nameControl="password">
+            </shared-custom-input>
+            <div *ngIf="isValidField('password')">
+                <ion-note color="danger" *ngIf="field('password')?.hasError('required')"
+                    [innerHTML]="_m.errorsFields.required"></ion-note>
+                <ion-note color="danger" *ngIf="field('password')?.hasError('minlength')"
+                    [innerHTML]="_m.errorsFields.password.minLength"></ion-note>
+                <ion-note color="danger" *ngIf="field('password')?.hasError('pattern')"
+                    [innerHTML]="_m.errorsFields.password.pattern"></ion-note>
+            </div>
+
+
+            <ion-button type="submit" shape="round" class="ion-margin-vertical" [disabled]="form.invalid"
+                aria-label="login">
+                acceder
+                <ion-icon slot="end" name="log-in-outline"></ion-icon>
+            </ion-button>
+            <div class="singUpIn">
+                <div>
+                    ¿No tienes cuenta?
+                </div>
+                <ion-button type="button" shape="round" class="ion-margin-vertical" aria-label="register"
+                    (click)="navigateByUrl()">
+                    Registrate
+                    <ion-icon slot="end" name="person-add-outline"></ion-icon>
+                </ion-button>
+            </div>
+        </form>
+    </div>
+</div>

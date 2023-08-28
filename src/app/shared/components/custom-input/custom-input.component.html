@@ -1,10 +1,10 @@
-<ion-item class="ion-margin-vertical">
+<ion-item class="ion-margin-vertical" lines="none">
   <ion-icon *ngIf="icon" slot="start" [name]="icon" color="primary"></ion-icon>
   <ion-input [type]="type==='password'?eye?type:'text':type" [label]="label" labelPlacement="floating"
     [placeholder]="placeholder" [formControl]="control" [autocomplete]="autocomplete">
   </ion-input>
   <ion-buttons slot="end" *ngIf="type==='password'">
-    <ion-button (click)="eye=!eye">
+    <ion-button (click)="eye=!eye" aria-label="eye">
       <ion-icon [name]="eye?'eye-outline':'eye-off-outline'"></ion-icon>
     </ion-button>
   </ion-buttons>

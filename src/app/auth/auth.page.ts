@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.page.html',
-  styleUrls: ['./auth.page.scss'],
+  template: ` <ion-content>
+    <shared-header
+      color="primary"
+      [title]="''"
+      [isModal]="false"
+      [backButtons]="''"
+    >
+    </shared-header>
+    <shared-logo></shared-logo>
+    <div class="content animate__animated animate__fadeIn">
+      <router-outlet></router-outlet>
+    </div>
+  </ion-content>`,
 })
-export class AuthPage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class AuthPage {}
